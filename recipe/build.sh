@@ -3,8 +3,11 @@
 set -euo pipefail
 
 cd src
-# Remove this stuff so that lib is not polluted
-rm -Rf .fslckout ChangeLog tests demo BWman
-[[ ! -d $PREFIX/lib/tcl8.6/bwidget ]] || exit 1
-mkdir -p $PREFIX/lib/tcl8.6/bwidget
-cp -r * $PREFIX/lib/tcl8.6/bwidget/
+
+TCL_VERSION="$(echo 'puts [info tclversion]' | tclsh)"
+TCL_LIB_PATH="$PREFIX"/lib/tcl"$TCL_VERSION"
+BWIDGET_PATH="$TCL_LIB_PATH"/bwidget
+
+[[ ! -d "$BWIDGET_PATH" ]] || exit 1
+mkdir -p "$BWIDGET_PATH"
+cp -r * "$BWIDGET_PATH"
