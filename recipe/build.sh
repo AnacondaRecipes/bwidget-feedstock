@@ -10,4 +10,4 @@ BWIDGET_PATH="$TCL_LIB_PATH"/bwidget
 
 [[ ! -d "$BWIDGET_PATH" ]] || exit 1
 mkdir -p "$BWIDGET_PATH"
-mv -r * "$BWIDGET_PATH"
+mv * "$BWIDGET_PATH"/
