@@ -12,7 +12,5 @@ BWIDGET_PATH="$TCL_LIB_PATH"/bwidget
 mkdir -p "$BWIDGET_PATH"
 
 # conda-build requires the license file for the packaging stage so we need it in the src folder
-mv LICENSE.txt .LICENSE.txt
 mv * "$BWIDGET_PATH"/
-mv .LICENSE.txt LICENSE.txt
-cp LICENSE.txt "$BWIDGET_PATH"/
+cp "$BWIDGET_PATH"/LICENSE.txt .
